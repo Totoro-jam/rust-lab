@@ -111,4 +111,4 @@ rust-lab/
 
 ---
 
-姊妹仓库：[python-lab](https://github.com/Totoro-jam/python-lab) / [c-lab](https://github.com/Totoro-jam/c-lab) / [frontend-expert-roadmap](https://github.com/Totoro-jam/frontend-expert-roadmap) / [testing-lab](https://github.com/Totoro-jam/testing-lab)
+相关仓库：[python-lab](https://github.com/Totoro-jam/python-lab) / [c-lab](https://github.com/Totoro-jam/c-lab) / [frontend-expert-roadmap](https://github.com/Totoro-jam/frontend-expert-roadmap) / [testing-lab](https://github.com/Totoro-jam/testing-lab)
