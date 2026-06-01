@@ -6,7 +6,7 @@
 
 ## 前置安装
 
-- **Rust** ≥ 1.75（稳定版 toolchain）
+- **Rust** ≥ 1.86（稳定版 toolchain）
   ```bash
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   rustup default stable

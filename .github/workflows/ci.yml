@@ -16,10 +16,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        toolchain: ["1.75", stable]
+        toolchain: ["1.86", stable]
         job: [clippy, fmt, test]
         exclude:
-          - toolchain: "1.75"
+          - toolchain: "1.86"
             job: fmt
     steps:
       - uses: actions/checkout@v4
