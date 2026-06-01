@@ -57,12 +57,15 @@ pub async fn run_worker_pool(items: Vec<String>, num_workers: usize) -> Vec<Work
     for _ in 0..num_workers {
         tx.send(WorkItem::Shutdown).await.ok();
     }
+    drop(tx);
 
     // Wait for workers to finish
     for handle in handles {
         handle.await.ok();
     }
 
-    let results = results.lock().await.clone();
-    results
+    // All workers done — unwrap the sole remaining Arc
+    std::sync::Arc::try_unwrap(results)
+        .expect("workers completed")
+        .into_inner()
 }
