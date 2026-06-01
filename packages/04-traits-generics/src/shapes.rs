@@ -137,7 +137,7 @@ mod tests {
 
     #[test]
     fn largest_area_generic() {
-        let shapes = vec![Circle::new(1.0), Circle::new(2.0), Circle::new(0.5)];
+        let shapes = [Circle::new(1.0), Circle::new(2.0), Circle::new(0.5)];
         let biggest = largest_area(&shapes).unwrap();
         assert_eq!(biggest.radius, 2.0);
     }

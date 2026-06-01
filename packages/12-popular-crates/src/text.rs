@@ -59,7 +59,7 @@ mod tests {
     #[test]
     fn extract_numbers_from_text() {
         let nums = extract_numbers("I have 3 cats and -2 dogs, plus 100 fish");
-        assert_eq!(nums, vec![3, -2, 100]);
+        assert_eq!(nums, [3, -2, 100]);
     }
 
     #[test]

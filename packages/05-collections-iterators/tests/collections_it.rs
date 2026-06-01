@@ -32,7 +32,7 @@ fn fibonacci_overflow_stops() {
 
 #[test]
 fn iterator_chaining() {
-    let data = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     let result: i32 = data.iter().filter(|&&x| x % 2 == 0).map(|&x| x * x).sum();
     // 4 + 16 + 36 + 64 + 100 = 220
     assert_eq!(result, 220);

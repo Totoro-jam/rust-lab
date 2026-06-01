@@ -53,16 +53,16 @@ mod tests {
 
     #[test]
     fn filter_map_parallel() {
-        let data = vec![1, 5, 3, 8, 2, 9, 4, 7, 6];
+        let data = [1, 5, 3, 8, 2, 9, 4, 7, 6];
         let result = parallel_filter_map(&data, 5);
-        assert_eq!(result, vec![12, 14, 16, 18]);
+        assert_eq!(result, [12, 14, 16, 18]);
     }
 
     #[test]
     fn sort_parallel() {
-        let mut data = vec![5, 3, 8, 1, 9, 2, 7, 4, 6];
+        let mut data = [5, 3, 8, 1, 9, 2, 7, 4, 6];
         parallel_sort(&mut data);
-        assert_eq!(data, vec![1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(data, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
     }
 
     #[test]
@@ -74,7 +74,7 @@ mod tests {
 
     #[test]
     fn word_count_parallel() {
-        let texts = vec!["hello world", "foo bar baz", "one"];
+        let texts = ["hello world", "foo bar baz", "one"];
         assert_eq!(parallel_word_count(&texts), 6);
     }
 }

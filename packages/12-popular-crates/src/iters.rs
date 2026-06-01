@@ -69,16 +69,16 @@ mod tests {
 
     #[test]
     fn rle_encode() {
-        let data = vec![1, 1, 2, 2, 2, 3, 1, 1];
+        let data = [1, 1, 2, 2, 2, 3, 1, 1];
         let encoded = run_length_encode(&data);
-        assert_eq!(encoded, vec![(1, 2), (2, 3), (3, 1), (1, 2)]);
+        assert_eq!(encoded, [(1, 2), (2, 3), (3, 1), (1, 2)]);
     }
 
     #[test]
     fn unique_preserves_order() {
-        let data = vec![3, 1, 4, 1, 5, 9, 2, 6, 5, 3];
+        let data = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3];
         let unique = unique_stable(&data);
-        assert_eq!(unique, vec![3, 1, 4, 5, 9, 2, 6]);
+        assert_eq!(unique, [3, 1, 4, 5, 9, 2, 6]);
     }
 
     #[test]
@@ -90,28 +90,28 @@ mod tests {
 
     #[test]
     fn chunk_into_groups() {
-        let data = vec![1, 2, 3, 4, 5, 6, 7];
+        let data = [1, 2, 3, 4, 5, 6, 7];
         let chunks = chunk_data(&data, 3);
-        assert_eq!(chunks, vec![vec![1, 2, 3], vec![4, 5, 6], vec![7]]);
+        assert_eq!(chunks, [vec![1, 2, 3], vec![4, 5, 6], vec![7]]);
     }
 
     #[test]
     fn combination_pairs() {
-        let data = vec![1, 2, 3];
+        let data = [1, 2, 3];
         let result = pairs(&data);
-        assert_eq!(result, vec![(1, 2), (1, 3), (2, 3)]);
+        assert_eq!(result, [(1, 2), (1, 3), (2, 3)]);
     }
 
     #[test]
     fn interleave_two_slices() {
         let result = interleave_slices(&[1, 3, 5], &[2, 4, 6]);
-        assert_eq!(result, vec![1, 2, 3, 4, 5, 6]);
+        assert_eq!(result, [1, 2, 3, 4, 5, 6]);
     }
 
     #[test]
     fn interleave_uneven() {
         let result = interleave_slices(&[1, 3], &[2, 4, 6, 8]);
-        assert_eq!(result, vec![1, 2, 3, 4, 6, 8]);
+        assert_eq!(result, [1, 2, 3, 4, 6, 8]);
     }
 
     #[test]
@@ -124,6 +124,6 @@ mod tests {
     #[test]
     fn cartesian_product() {
         let result = cartesian(&[1, 2], &[10, 20]);
-        assert_eq!(result, vec![(1, 10), (1, 20), (2, 10), (2, 20)]);
+        assert_eq!(result, [(1, 10), (1, 20), (2, 10), (2, 20)]);
     }
 }
