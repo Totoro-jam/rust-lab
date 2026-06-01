@@ -1,0 +1,17 @@
+# Cargo
+target/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Coverage
+*.profraw
+*.profdata
+
+# Benchmark output
+criterion/

@@ -1,0 +1,17 @@
+[package]
+name = "mathlib"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+default = ["trig"]
+trig = []
+stats = []
+
+[dependencies]
+
+[dev-dependencies]
+
+[lints]
+workspace = true

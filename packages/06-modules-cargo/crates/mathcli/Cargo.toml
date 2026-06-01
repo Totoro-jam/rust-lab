@@ -1,0 +1,11 @@
+[package]
+name = "mathcli"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+mathlib = { path = "../mathlib", features = ["trig", "stats"] }
+
+[lints]
+workspace = true

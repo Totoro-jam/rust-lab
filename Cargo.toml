@@ -1,0 +1,24 @@
+[workspace]
+members = [
+  "packages/01-fundamentals",
+  "packages/02-ownership-borrowing",
+  "packages/03-error-handling",
+  "packages/04-traits-generics",
+  "packages/05-collections-iterators",
+  "packages/07-testing-bench",
+  "packages/08-async-tokio",
+  "packages/09-serde-json",
+  "packages/10-http-axum-reqwest",
+  "packages/11-cli-clap-anyhow",
+  "packages/12-popular-crates",
+]
+exclude = ["packages/06-modules-cargo"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace.lints.rust]
+unsafe_code = "forbid"

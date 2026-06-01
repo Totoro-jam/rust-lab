@@ -1,0 +1,21 @@
+[package]
+name = "rustlab03"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "config-parser"
+path = "src/main.rs"
+
+[dependencies]
+thiserror = "2"
+anyhow = "1"
+
+[dev-dependencies]
+
+[lints.rust]
+unsafe_code = "forbid"

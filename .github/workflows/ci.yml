@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    name: ${{ matrix.toolchain }} / ${{ matrix.job }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain: ["1.75", stable]
+        job: [clippy, fmt, test]
+        exclude:
+          - toolchain: "1.75"
+            job: fmt
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust ${{ matrix.toolchain }}
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.toolchain }}
+          components: ${{ matrix.job == 'clippy' && 'clippy' || matrix.job == 'fmt' && 'rustfmt' || '' }}
+
+      - uses: Swatinem/rust-cache@v2
+
+      # ---------- root workspace ----------
+      - name: Clippy (root workspace)
+        if: matrix.job == 'clippy'
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Rustfmt check
+        if: matrix.job == 'fmt'
+        run: cargo fmt --all -- --check
+
+      - name: Test (root workspace)
+        if: matrix.job == 'test'
+        run: cargo test --workspace
+
+      # ---------- packages/06-modules-cargo (separate workspace) ----------
+      - name: Clippy (06-modules-cargo)
+        if: matrix.job == 'clippy'
+        run: cargo clippy --workspace --all-targets -- -D warnings
+        working-directory: packages/06-modules-cargo
+
+      - name: Rustfmt check (06-modules-cargo)
+        if: matrix.job == 'fmt'
+        run: cargo fmt --all -- --check
+        working-directory: packages/06-modules-cargo
+
+      - name: Test (06-modules-cargo)
+        if: matrix.job == 'test'
+        run: cargo test --workspace
+        working-directory: packages/06-modules-cargo

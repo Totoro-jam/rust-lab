@@ -1,0 +1,16 @@
+[package]
+name = "rustlab08"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+
+[dev-dependencies]
+
+[lints.rust]
+unsafe_code = "forbid"

@@ -1,0 +1,22 @@
+[package]
+name = "rustlab07"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+
+[dev-dependencies]
+proptest = "1"
+rstest = "0.23"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "calc_bench"
+harness = false
+
+[lints.rust]
+unsafe_code = "forbid"

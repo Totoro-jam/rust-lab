@@ -1,0 +1,21 @@
+[package]
+name = "rustlab12"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+rayon = "1"
+regex = "1"
+chrono = "0.4"
+itertools = "0.14"
+uuid = { version = "1", features = ["v4"] }
+bytes = "1"
+
+[dev-dependencies]
+
+[lints.rust]
+unsafe_code = "forbid"

@@ -1,0 +1,23 @@
+[package]
+name = "rustlab01"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# 同 crate 既给 lib 又给 bin 用 — 标准做法。
+# bin 通过 use rustlab01::calc 引到库函数。
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "rustlab01-calc"
+path = "src/main.rs"
+
+[dependencies]
+# 第一章故意不引任何第三方依赖,体会"裸 Rust"
+
+[dev-dependencies]
+# 同上,后续章节再引入 proptest / criterion 等
+
+[lints.rust]
+unsafe_code = "forbid"
